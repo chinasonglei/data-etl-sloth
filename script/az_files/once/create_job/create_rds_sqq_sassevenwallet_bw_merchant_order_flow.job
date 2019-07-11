@@ -1,0 +1,4 @@
+
+type=command
+command=/bin/bash /home/dispatch/Project/data-etl-sloth/script/az_files/once/create_sh/create_rds_sqq_sassevenwallet_bw_merchant_order.sh
+failure.emails=redalert-dataplatform@beadwallet.com

@@ -1,0 +1,6 @@
+
+type=command
+command=/bin/bash /home/dispatch/Project/data-etl-sloth/script/az_files/app_check/app_check_sh/check_app_bdw_beadwalletloan_activity_discount_info.sh
+retries=12
+retry.backoff=300000
+failure.emails=redalert-dataplatform@beadwallet.com

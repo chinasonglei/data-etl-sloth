@@ -1,0 +1,20 @@
+select 
+`distribute_id`,
+`borrow_id`,
+`activity_id`,
+`discount_id`,
+`distribute_type`,
+`number`,
+`amount`,
+`loan_amount`,
+`effective`,
+`item_name`,
+DATE_FORMAT(create_time, "%Y-%m-%d %H:%i:%s") AS create_time,
+DATE_FORMAT(expiry_time, "%Y-%m-%d %H:%i:%s") AS expiry_time,
+`use_number`,
+`total_number`,
+`yhq_no`,
+`yhq_send_reason`,
+`operator`,
+DATE_FORMAT(update_time, "%Y-%m-%d %H:%i:%s") AS update_time
+ from activity_discount_distribute a

@@ -1,0 +1,20 @@
+drop table if exists ods.ods_bdw_beadwalletloan_activity_discount_distribute ;
+create table ods.ods_bdw_beadwalletloan_activity_discount_distribute (
+`distribute_id` bigint comment '主键',
+`borrow_id` bigint comment '借款人信息表主键',
+`activity_id` bigint comment '活动基本信息表主键',
+`discount_id` bigint comment '优惠信息表主键',
+`distribute_type` int comment '派发类型(1、新手券，2.邀请券，3、抽奖，4、免息券，5、现金派发)',
+`number` bigint comment '剩余的优惠券张数',
+`amount` string comment '优惠金额',
+`loan_amount` string comment '限定金额',
+`effective` int comment '是否满足使用条件(0:不生效,1生效)',
+`item_name` string comment '实物物品名称',
+`create_time` string comment '创建时间',
+`expiry_time` string comment '过期时间',
+`use_number` bigint comment '已使用优惠券张数',
+`total_number` bigint comment '优惠券总数',
+`yhq_no` string comment '优惠券券号',
+`yhq_send_reason` string comment '发放原因',
+`operator` string comment '优惠券操作人',
+`update_time` string comment '优惠券操作人' )comment '活动优惠派发表'partitioned by (dt int) stored as parquet location 'hdfs:///user/hive/warehouse/ods/ods_bdw_beadwalletloan_activity_discount_distribute' ;

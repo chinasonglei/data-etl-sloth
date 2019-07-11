@@ -1,0 +1,3 @@
+type=command
+command=/bin/bash -x /home/dispatch/Project/data-etl-sloth/script/sbin/run_meta_data.sh '/home/dispatch/Project/data-etl-sloth/conf/config.xml'
+failure.emails=redalert-dataplatform@beadwallet.com

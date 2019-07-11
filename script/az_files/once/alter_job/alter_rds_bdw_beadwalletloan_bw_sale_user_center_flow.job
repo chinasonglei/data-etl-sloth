@@ -1,0 +1,4 @@
+
+type=command
+command=/bin/bash /home/dispatch/Project/data-etl-sloth/script/az_files/once/alter_sh/alter_rds_bdw_beadwalletloan_bw_sale_user_center.sh
+failure.emails=redalert-dataplatform@beadwallet.com

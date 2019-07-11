@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+nohup java -classpath /home/dispatch/Project/data-etl-sloth/modules/az_dispatch-1.0-jar-with-dependencies.jar com.beadwallet.exec.DispatchRetry /home/dispatch/Project/data-etl-sloth/conf/config.xml "data_etl" >> /data/disk13/logs/dispatch/logs/run_retry.log &

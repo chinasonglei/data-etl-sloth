@@ -1,0 +1,4 @@
+type=command
+command=/bin/bash -x /home/dispatch/Project/data-etl-sloth/script/sbin/run_etl_script.sh
+dependencies=etl_check
+failure.emails=redalert-dataplatform@beadwallet.com

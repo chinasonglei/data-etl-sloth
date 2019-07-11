@@ -1,0 +1,3 @@
+type=command
+command=/bin/bash -x /home/dispatch/Project/data-etl-sloth/script/sbin/run_sloth_flow_rds_retry.sh
+failure.emails=redalert-dataplatform@beadwallet.com

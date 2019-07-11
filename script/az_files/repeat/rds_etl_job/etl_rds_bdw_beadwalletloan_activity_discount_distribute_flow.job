@@ -1,0 +1,5 @@
+
+type=command
+command=/bin/bash /home/dispatch/Project/data-etl-sloth/script/az_files/repeat/rds_etl_sh/etl_rds_bdw_beadwalletloan_activity_discount_distribute.sh
+dependencies=etl_ods_bdw_beadwalletloan_activity_discount_distribute_flow
+failure.emails=redalert-dataplatform@beadwallet.com

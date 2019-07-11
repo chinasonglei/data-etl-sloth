@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Configuration>
+
+    <!-- 公用配置信息 -->
+    <!-- 数据字典元数据库MySQL配置信息 -->
+    <Metastore>
+        <comment index="1">metastore</comment>
+        <driver>com.mysql.jdbc.Driver</driver>
+        <url>jdbc:mysql://172.17.0.198:3306/xxxx?useUnicode=true&amp;characterEncoding=utf-8&amp;rewriteBatchedStatements=true</url>
+        <user>xxxx</user>
+        <passwd>xxxx</passwd>
+    </Metastore>
+
+    <!-- xxxx元数据库MySQL配置-->
+    <xxxxJdbc>
+        <comment index="1">az</comment>
+        <driver>com.mysql.jdbc.Driver</driver>
+        <url>jdbc:mysql://172.17.0.198:3306/xxxx?useUnicode=true&amp;characterEncoding=utf-8&amp;rewriteBatchedStatements=true</url>
+        <user>xxxx</user>
+        <passwd>xxxx</passwd>
+    </xxxxJdbc>
+
+
+    <!-- Meta_Manager模块配置 -->
+    <!-- 业务库MySQL连接配置-->
+    <BusinessJdbc db_source="MySQL" businessSource="udw" dbName="approval">
+        <comment index="1">云审批-mysql</comment>
+        <businessSource>udw</businessSource>
+        <dbName>approval</dbName>
+        <driver>com.mysql.jdbc.Driver</driver>
+        <url>jdbc:mysql://172.17.0.116:3306/approval?tinyInt1isBit=false&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;autoReconnect=true&amp;zeroDateTimeBehavior=convertToNull&amp;wait_timeout=1814400</url>
+        <username>xxxx</username>
+        <password>xxxx</password>
+    </BusinessJdbc>
+
+    <BusinessJdbc db_source="MySQL" businessSource="bdw" dbName="beadwalletloan">
+        <comment index="2">速秒—mysql-2019-01-12</comment>
+        <businessSource>bdw</businessSource>
+        <dbName>beadwalletloan</dbName>
+        <driver>com.mysql.jdbc.Driver</driver>
+        <url>jdbc:mysql://106.15.126.201:3306/beadwalletloan?tinyInt1isBit=false&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;autoReconnect=true&amp;zeroDateTimeBehavior=convertToNull&amp;wait_timeout=1814400</url>
+        <username>xxxx</username>
+        <password>xxxx</password>
+    </BusinessJdbc>
+
+    <BusinessJdbc db_source="MySQL" businessSource="sqq" dbName="beadwalletloan">
+        <comment index="3">七七—mysql-2019-01-12</comment>
+        <businessSource>sqq</businessSource>
+        <dbName>beadwalletloan</dbName>
+        <driver>com.mysql.jdbc.Driver</driver>
+        <url>jdbc:mysql://106.14.238.126:3306/beadwalletloan?tinyInt1isBit=false&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;autoReconnect=true&amp;zeroDateTimeBehavior=convertToNull&amp;wait_timeout=1814400</url>
+        <username>xxxx</username>
+        <password>xxxx</password>
+    </BusinessJdbc>
+
+    <BusinessJdbc db_source="MySQL" businessSource="dic" dbName="xxxx">
+        <comment index="4">测试环境字典表入库,mysql,2019-03-14 </comment>
+        <businessSource>dic</businessSource>
+        <dbName>xxxx</dbName>
+        <driver>com.mysql.jdbc.Driver</driver>
+        <url>jdbc:mysql://172.17.0.198:3306/xxxx?tinyInt1isBit=false&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;autoReconnect=true&amp;zeroDateTimeBehavior=convertToNull&amp;wait_timeout=1814400</url>
+        <username>xxxx</username>
+        <password>xxxx</password>
+    </BusinessJdbc>
+    <!--dbSource:数据库类型；dbName：数据库名称；tableName：表名称；timeOffset：时间偏移量，单位为小时  -->
+    <TimeOffset>
+        <comment index="1">metadata—mysql-2019-01-11</comment>
+        <dbSource>mysql</dbSource>
+        <dbName>beadwalletloan</dbName>
+        <tableName>activity_discount_info</tableName>
+        <timeOffset>2</timeOffset>
+    </TimeOffset>
+
+    <TimeOffset>
+        <comment index="2">metadata—mysql-2019-01-11</comment>
+        <dbSource>mysql</dbSource>
+        <dbName>sassevenwallet</dbName>
+        <tableName>activity_discount_info</tableName>
+        <timeOffset>4</timeOffset>
+    </TimeOffset>
+
+
+    <!-- AZ_xxxx模块配置 -->
+    <xxxx>
+        <comment index="1">xxxx config</comment>
+        <!-- xxxx相关配置 -->
+        <xxxxUrl>https://172.17.0.217:8443</xxxxUrl>
+        <xxxxUsername>xxxx</xxxxUsername>
+        <xxxxPassword>xxxx</xxxxPassword>
+
+        <!-- 自动生成脚本相关配置 -->
+        <xxxxHome>/home/xxxx/platform/etl_xxxx</xxxxHome>
+        <autoGenerationPath>/home/xxxx/platform/etl_xxxx/schedule/etl_script/schedule</autoGenerationPath>
+
+        <!-- 表属性维护任务相关配置 -->
+        <etlPrepareFolder>once</etlPrepareFolder><!-- 文件夹名 -->
+        <etlPrepareProjectPrefix>data_once</etlPrepareProjectPrefix><!-- project前缀 -->
+        <etlPrepareBatchNumber>15</etlPrepareBatchNumber><!-- 每批次执行数量 -->
+        <etlPrepareInterval>40000</etlPrepareInterval><!-- 单位: 毫秒 -->
+
+        <!-- ETL任务相关配置 -->
+        <etlScriptFolder>repeat</etlScriptFolder><!-- 文件夹名 -->
+        <etlProjectPrefix>data_etl</etlProjectPrefix><!-- project前缀 -->
+        <etlBatchNumber>15</etlBatchNumber><!-- 每批次执行数量(所有Exec合计) -->
+        <etlFirstHours>3</etlFirstHours><!-- 定时任务开始小时 -->
+        <etlFirstMinute>0</etlFirstMinute><!-- 定时任务开始分钟 -->
+
+        <!-- 调度层级 -->
+        <xxxxTier>ods,rds</xxxxTier>
+
+        <!-- 失败重试配置 -->
+        <retryBatchNumber>10</retryBatchNumber><!-- 每批次执行数量 -->
+        <retryInterval>300000</retryInterval><!-- 单位: 毫秒 -->
+    </xxxx>
+
+    <!-- Task_Monitoring模块配置 -->
+    <!-- 通知邮件收件者以及发件者-->
+    <MailReceiver>
+        <comment index="1">收件者</comment>
+        <toAddress>luzhiyuan@beadwallet.com</toAddress>
+        <toAddress>quchunhui@beadwallet.com</toAddress>
+        <subject>测试--数仓自动化通知邮件</subject>
+    </MailReceiver>
+    <MailSender>
+        <comment index="1">发件者</comment>
+        <mailServerHost>smtp.beadwallet.com</mailServerHost>
+        <mailSenderAddress>system@beadwallet.com</mailSenderAddress>
+        <mailSenderNick>测试--数仓自动化-监控系统</mailSenderNick>
+        <mailSenderUsername>system@beadwallet.com</mailSenderUsername>
+        <mailSenderPassword>xxxx</mailSenderPassword>
+    </MailSender>
+
+    <!--模块的端口号设置:serverName 模块名称；port：模块端口号-->
+    <ServerPort>
+        <serverName>meta_manage</serverName>
+        <port>8081</port>
+    </ServerPort>
+
+    <!-- 日志服务参数 -->
+    <LogServerConf>
+        <path>/data/disk13/logs/xxxx/logs</path>
+        <exceptionLogsNumThreshold>100</exceptionLogsNumThreshold>
+        <waitTimeSecondsThreshold>36000</waitTimeSecondsThreshold>
+    </LogServerConf>
+
+    <!-- Hive元数据库MySQL配置 -->
+    <HiveMetastore>
+        <comment index="1">hive_matestore</comment>
+        <driver>com.mysql.cj.jdbc.Driver</driver>
+        <url>jdbc:mysql://172.17.0.198:3306/metastore?useUnicode=true&amp;characterEncoding=utf-8</url>
+        <user>xxxx</user>
+        <passwd>xxxx</passwd>
+    </HiveMetastore>
+
+    <!-- HiveJDBC配置 -->
+    <HiveJdbc>
+        <comment index="1">hive</comment>
+        <driver>org.apache.hive.jdbc.HiveDriver</driver>
+        <url>jdbc:hive2://172.17.0.217:2181&#44;172.17.0.218:2181&#44;172.17.0.219:2181/;serviceDiscoveryMode=zooKeeper;zooKeeperNamespace=hiveserver2_zk</url>
+        <user>hive</user>
+        <passwd>xxxx</passwd>
+    </HiveJdbc>
+</Configuration>

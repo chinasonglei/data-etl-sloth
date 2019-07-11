@@ -1,0 +1,1 @@
+use ods;ALTER TABLE ods_bdw_beadwalletloan_activity_info ADD columns(activity_id bigint,activity_title string,start_time string,end_time string,participant string,content string,activity_rule string,status int,limited_time bigint,valid_year int,valid_month int,valid_day int,limited_amount string,activity_type int,create_time string,activity_url string,activity_img string); 

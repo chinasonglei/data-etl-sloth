@@ -1,0 +1,5 @@
+type=command
+command=/bin/bash -x /home/dispatch/Project/data-etl-sloth/script/sbin/etl_check.sh
+retries=48
+retry.backoff=60000
+failure.emails=redalert-dataplatform@beadwallet.com
